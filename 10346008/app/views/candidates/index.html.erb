@@ -1,28 +1,40 @@
- <h1>書籍列表</h1>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <%= link_to "新增書籍", new_candidate_path %>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-  <table>
-    <thead>
-      <tr>
-        <td>書名</td>
-        <td>簡介</td>
-        <td>作者</td>
-        <td>售價</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @candidates.each do |candidate| %>
-      <tr>
-        <td><%= candidate.bookname %></td>
-        <td><%= candidate.introduction %></td>
-        <td><%= candidate.name %></td>
-        <td><%= candidate.price %></td>
-        <td>
-          <%= link_to "編輯", edit_candidate_path(candidate) %>
-          <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" } %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<body>
+  <div class="container">
+      <h1>書籍列表</h1>
+      <%= link_to "新增書籍", new_candidate_path, class:"btn btn-delete btn-xl" %>
+       
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td>書名</td>
+            <td>簡介</td>
+            <td>作者</td>
+            <td>售價</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @candidates.each do |candidate| %>
+          <tr>
+            <td><%= candidate.bookname %></td>
+            <td><%= candidate.introduction %></td>
+            <td><%= candidate.name %></td>
+            <td><%= candidate.price %></td>
+            <td>
+              <%= link_to "編輯", edit_candidate_path(candidate), class:"btn btn-info btn-xs"%>
+              <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" }, class:"btn btn-danger btn-xs" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</body>
