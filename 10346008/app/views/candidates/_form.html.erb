@@ -1,0 +1,16 @@
+<!--Partial Render-->  
+<%= form_for(candidate) do |f| %>
+    <%= f.label :bookname, "書名" %>
+    <%= f.text_field :bookname %> <br />
+
+    <%= f.label :introduction, "簡介" %>
+    <%= f.text_area :introduction %> <br />
+
+    <%= f.label :name, "作者" %>
+    <%= f.text_field :name %> <br />
+
+    <%= f.label :price, "售價" %>
+    <%= f.text_field :price %> <br />
+
+    <%= f.submit %>
+  <% end %>
